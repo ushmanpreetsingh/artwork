@@ -1,0 +1,25 @@
+<h1>Artworks</h1>
+<%= form_tag(artworks_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search], placeholder: "Search artworks") %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<table >
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Medium</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @artworks.each do |artwork| %>
+      <tr>
+        <td><%= artwork.title %></td>
+        <td><%= artwork.medium %></td>
+        <td><%= artwork.description %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
